@@ -13,7 +13,8 @@
     "keyboard",
     "shortcuts",
     "keypress",
-    "hotkeys"
+    "hotkeys",
+    "mousetrap"
   ],
   "license": "MIT",
   "scripts": {
