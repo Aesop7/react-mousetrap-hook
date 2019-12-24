@@ -48,7 +48,7 @@
     ]
   },
   "dependencies": {
-    "hotkeys-js": "3.7.3"
+    "mousetrap": "^1.6.3"
   },
   "devDependencies": {
     "@babel/core": "7.7.5",
