@@ -1,21 +1,23 @@
-# react-hotkeys-hook
+# react-mousetrap-hook
 React hook for using keyboard shortcuts in components.
-This is a hook version for the [hotkeys] package.
+This is a hook version for the [mousetrap] package.
 
+<!--
 ### Documentation and live example
 
 https://johannesklauss.github.io/react-hotkeys-hook/
 
+-->
 ### Installation
 
 ```shell
-npm install react-hotkeys-hook
+npm install react-mousetrap-hook
 ```
 
 or
 
 ```shell
-yarn add react-hotkeys-hook
+yarn add react-mouserap-hook
 ```
 
 Make sure that you have at least version 16.8 of `react` and `react-dom` installed, or otherwise hooks won't work for you.
@@ -23,7 +25,7 @@ Make sure that you have at least version 16.8 of `react` and `react-dom` install
 ### Usage
 With TypeScript
 ```typescript jsx
-import { useMousetrap } from 'react-hotkeys-hook';
+import { useMousetrap } from 'react-mousetrap-hook';
 
 export const ExampleComponent: React.FC = () => {
   const [count, setCount] = useState(0);
@@ -63,13 +65,13 @@ useMousetrap(keys: string, callback: (event: KeyboardEvent, handler: HotkeysEven
 
 The `useMousetrap` hook follows the [mousetrap] call signature.
 The callback function takes the exact parameters as the callback function in the hotkeys package.
-See [hotkeys] documentation for more info or look into the typings file.
+See [mousetrap] documentation for more info or look into the typings file.
 
 ### Parameters
 - `keys: string`: Here you can set the key strokes you want the hook to listen to. You can use single or multiple keys,
 modifier combination, etc. See [this](https://craig.is/killing/mice)
-section on the hotkeys documentation for more info.
-- `callback: (event: KeyboardEvent, handler: HotkeysEvent) => void`: Gets executed when the defined keystroke
+section on the mousetrap documentation for more info.
+- `callback: (event: KeyboardEvent, handler: MousetrapEvent) => void`: Gets executed when the defined keystroke
 gets hit by the user. **Important:** Since version 1.5.0 this callback gets memoised inside the hook. So you don't have
 to do this anymore by yourself.
 - `deps: any[] = []`: The dependency array that gets appended to the memoisation of the callback. Here you define the inner
