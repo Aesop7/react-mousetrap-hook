@@ -23,11 +23,11 @@ Make sure that you have at least version 16.8 of `react` and `react-dom` install
 ### Usage
 With TypeScript
 ```typescript jsx
-import { useHotkeys } from 'react-hotkeys-hook';
+import { useMousetrap } from 'react-hotkeys-hook';
 
 export const ExampleComponent: React.FC = () => {
   const [count, setCount] = useState(0);
-  useHotkeys('ctrl+k', () => setCount(prevCount => prevCount + 1));
+  useMousetrap('ctrl+k', () => setCount(prevCount => prevCount + 1));
 
   return (
     <p>
@@ -41,7 +41,7 @@ Or plain JS:
 ```js
 export const ExampleComponent = () => {
   const [count, setCount] = useState(0);
-  useHotkeys('ctrl+k', () => setCount(prevCount => prevCount + 1));
+  useMousetrap('ctrl+k', () => setCount(prevCount => prevCount + 1));
     
   return (
     <p>
@@ -58,16 +58,16 @@ listened to. When the component unmounts it will stop listening.
 ### Call Signature
 
 ```typescript
-useHotkeys(keys: string, callback: (event: KeyboardEvent, handler: HotkeysEvent) => void, deps: any[] = [])
+useMousetrap(keys: string, callback: (event: KeyboardEvent, handler: HotkeysEvent) => void, deps: any[] = [])
 ```
 
-The `useHotkeys` hook follows the [hotkeys] call signature.
+The `useMousetrap` hook follows the [mousetrap] call signature.
 The callback function takes the exact parameters as the callback function in the hotkeys package.
 See [hotkeys] documentation for more info or look into the typings file.
 
 ### Parameters
 - `keys: string`: Here you can set the key strokes you want the hook to listen to. You can use single or multiple keys,
-modifier combination, etc. See [this](https://github.com/jaywcjlove/hotkeys/#defining-shortcuts)
+modifier combination, etc. See [this](https://craig.is/killing/mice)
 section on the hotkeys documentation for more info.
 - `callback: (event: KeyboardEvent, handler: HotkeysEvent) => void`: Gets executed when the defined keystroke
 gets hit by the user. **Important:** Since version 1.5.0 this callback gets memoised inside the hook. So you don't have
@@ -86,13 +86,15 @@ Open up an issue or pull request and participate.
 ### Local Development
 
 Checkout this repo, run `yarn` or `npm i` and then run the `docz:dev` script.
-You can use the `docs/useHotkeys.mdx` to test the behavior of the hook. It directly imports the
+You can use the `docs/useMousetrap.mdx` to test the behavior of the hook. It directly imports the
 `src/index.ts` file and transpiles it automatically. So you don't have to worry about. For more info
 on .mdx files, check out the docz documentation: https://www.docz.site/docs/writing-mdx
 
-### Authors
+### Fork Notice
 
-* Johannes Klauss
+This project was forked from JohannesKlauss/react-hotkeys-hook.
+
+It was forked because even though hotkeys.js is more up-to-date than mousetrap.js, it does not currently support sequential key combinations.
 
 ---
 
@@ -100,4 +102,4 @@ MIT License.
 
 ---
 
-[hotkeys]: https://github.com/jaywcjlove/hotkeys
+[mousetrap]: https://github.com/ccampbell/mousetrap

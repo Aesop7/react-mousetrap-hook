@@ -35,7 +35,7 @@
 * Updated examples in readme.md
 
 ## [1.1.0] - 20-Feb-2019
-* BC: Renamed `useHotKeys` to `useHotkeys` to keep it identical with the hotkeys package
+* BC: Renamed `useMousetrap` to `useMousetrap` to keep it identical with the hotkeys package
 * Switched to docz for documentation
 * Switched to pika for packaging and publishing
 

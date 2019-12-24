@@ -1,14 +1,14 @@
 ---
-name: useHotkeys
+name: useMousetrap
 ---
 
 import { Playground } from 'docz';
 import { useState } from 'react';
-import { useHotkeys } from '../src';
+import { useMousetrap } from '../src';
 
-# useHotkeys
+# useMousetrap
 
-The `useHotkeys` hook follows the hotkeys call signature.
+The `useMousetrap` hook follows the hotkeys call signature.
 
 The callback function takes the exact parameters as the callback function in the hotkeys package.
 See hotkeys documentation for more info or look into the typings file.
@@ -17,7 +17,7 @@ When the component gets mounted into the DOM, it will listen for the keystroke. 
 stops listening for the keystroke.
 
 ```ts
-useHotkeys(keys: string, callback: (event: KeyboardEvent, handler: HotkeysEvent) => void, deps: any[] = [])
+useMousetrap(keys: string, callback: (event: KeyboardEvent, handler: HotkeysEvent) => void, deps: any[] = [])
 ```
 
 ## Parameters
@@ -46,15 +46,15 @@ React hooks, I decided to bring the memoisation inside the hook, so you don't ha
 **Memoisation** section for more info on this.
 
 ```js
-import { useHotkeys } from 'react-hotkeys-hook';
+import { useMousetrap } from 'react-hotkeys-hook';
 ```
 
 ```jsx
 const AddToBankComponent = () => {
   const [amount, setAmount] = useState(0);
 
-  useHotkeys('ctrl+a', () => setAmount(prevAmount => prevAmount + 100));
-  useHotkeys('ctrl+d', () => setAmount(prevAmount => prevAmount - 100));
+  useMousetrap('ctrl+a', () => setAmount(prevAmount => prevAmount + 100));
+  useMousetrap('ctrl+d', () => setAmount(prevAmount => prevAmount - 100));
 
   return (
     <div>
@@ -67,8 +67,8 @@ const AddToBankComponent = () => {
 <Playground>
   {() => {
     const [amount, setAmount] = useState(0);
-    useHotkeys('ctrl+a', () => setAmount(prevAmount => prevAmount + 100));
-    useHotkeys('ctrl+d', () => setAmount(prevAmount => prevAmount - 100));
+    useMousetrap('ctrl+a', () => setAmount(prevAmount => prevAmount + 100));
+    useMousetrap('ctrl+d', () => setAmount(prevAmount => prevAmount - 100));
     return (
       <div>
         {amount >= 0 ? 'Add' : 'Remove'} {Math.abs(amount)} dollars {amount >= 0 ? 'from' : 'to'} my bank account.
@@ -86,7 +86,7 @@ const AddToBankComponent = () => {
   const [amount, setAmount] = useState(0);
 
   // Don't use this in production, won't work as expected.
-  useHotkeys('n', () => setAmount(amount + 100), []);
+  useMousetrap('n', () => setAmount(amount + 100), []);
 
   return (
     <div>
@@ -99,7 +99,7 @@ const AddToBankComponent = () => {
 <Playground>
   {() => {
     const [amount, setAmount] = useState(0);
-    useHotkeys('n', () => setAmount(amount + 100), []);
+    useMousetrap('n', () => setAmount(amount + 100), []);
     return (
       <div>
         Add {Math.abs(amount)} dollars to my bank account.
@@ -110,9 +110,9 @@ const AddToBankComponent = () => {
 
 You'll notice that it will work on the first key stroke you hit, but after that the value won't change anymore. This is
 called stale state. What happened is that we defined a callback that depends on a value which changes over time. In this
-case it's the `amount` variable. Our `() => setAmount(amount + 100)` callback gets memoised inside the `useHotkeys` hook
+case it's the `amount` variable. Our `() => setAmount(amount + 100)` callback gets memoised inside the `useMousetrap` hook
 and since we don't define any dependencies our callback will always stay the same and reference the same value it retrieved
-the first time it got executed. So inside the `useHotkeys` hook the value of `amount` will always be `0`, which is the
+the first time it got executed. So inside the `useMousetrap` hook the value of `amount` will always be `0`, which is the
 initial value. You can see that for yourself, when copying this example and changing the initial value.
 Going a step further in our logic flow, this means that our callback will always call `setAmount` with the value `100`.
 So our logic flow got stuck, tis not what we wanted.
@@ -125,7 +125,7 @@ const AddToBankComponent = () => {
   const [amount, setAmount] = useState(0);
 
   // Works, but has performance and binding issues.
-  useHotkeys('m', () => setAmount(amount + 100), [amount]);
+  useMousetrap('m', () => setAmount(amount + 100), [amount]);
 
   return (
     <div>
@@ -138,7 +138,7 @@ const AddToBankComponent = () => {
 <Playground>
   {() => {
     const [amount, setAmount] = useState(0);
-    useHotkeys('m', () => setAmount(amount + 100), [amount]);
+    useMousetrap('m', () => setAmount(amount + 100), [amount]);
     return (
       <div>
         Add {Math.abs(amount)} dollars to my bank account.
@@ -157,7 +157,7 @@ approach for `setAmount` like in the very first example:
 const AddToBankComponent = () => {
   const [amount, setAmount] = useState(0);
 
-  useHotkeys('m', () => setAmount(amount => amount + 100), []);
+  useMousetrap('m', () => setAmount(amount => amount + 100), []);
 
   return (
     <div>
