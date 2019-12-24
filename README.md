@@ -94,7 +94,7 @@ on .mdx files, check out the docz documentation: https://www.docz.site/docs/writ
 
 ### Fork Notice
 
-This project was forked from JohannesKlauss/react-hotkeys-hook.
+This project was forked from [JohannesKlauss/react-hotkeys-hook](https://johannesklauss.github.io/react-hotkeys-hook/).
 
 It was forked because even though hotkeys.js is more up-to-date than mousetrap.js, it does not currently support sequential key combinations.
 
