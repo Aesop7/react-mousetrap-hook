@@ -1,7 +1,7 @@
 import pkg from './package.json';
 
 export default {
-  title: 'React Hotkeys Hook',
+  title: 'React Mousetrap Hook',
   description: pkg.description,
   base: `/${pkg.name}/`,
   version: pkg.version,
