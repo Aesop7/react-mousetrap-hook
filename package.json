@@ -1,7 +1,7 @@
 {
   "name": "react-hotkeys-hook",
   "version": "1.5.4",
-  "repository": "https://JohannesKlauss@github.com/JohannesKlauss/react-keymap-hook.git",
+  "repository": "https://github.com/Aesop7/react-mousetrap-hook.git",
   "author": "Johannes Klauss",
   "keywords": [
     "react",
